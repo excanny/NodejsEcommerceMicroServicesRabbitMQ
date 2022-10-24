@@ -4,11 +4,12 @@ const PORT = process.env.PORT_PAYMENT || 8003;
 const mongoose = require("mongoose");
 const amqp = require("amqplib");
 const Payment = require("./models/Payment");
+const { MONGO_URI } = process.env;
 
 var channel, connection;
 
 mongoose.connect(
-    "mongodb+srv://excanny:Excannyg*1914@cluster0.rhoaa.mongodb.net/payment-service?retryWrites=true&w=majority",
+    MONGO_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

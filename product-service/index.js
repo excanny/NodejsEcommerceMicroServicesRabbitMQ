@@ -5,11 +5,12 @@ const mongoose = require("mongoose");
 const Product = require("./models/Product");
 const amqp = require("amqplib");
 const auth = require("../auth");
+const { MONGO_URI } = process.env;
 var order, channel, connection;
 
 app.use(express.json());
 mongoose.connect(
-    "mongodb+srv://excanny:Excannyg*1914@cluster0.rhoaa.mongodb.net/product-serviceDB?retryWrites=true&w=majority",
+    MONGO_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

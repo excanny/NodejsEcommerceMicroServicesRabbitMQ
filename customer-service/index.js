@@ -4,10 +4,11 @@ const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const PORT = process.env.PORT_AUTH || 8001;
 const Customer = require("./models/Customer");
+const { MONGO_URI } = process.env;
 const app = express();
 
 mongoose.connect(
-    "mongodb+srv://excanny:Excannyg*1914@cluster0.rhoaa.mongodb.net/customer-serviceDB?retryWrites=true&w=majority",
+    MONGO_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

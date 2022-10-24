@@ -4,11 +4,12 @@ const PORT = process.env.PORT_ORDER || 8003;
 const mongoose = require("mongoose");
 const Order = require("./models/Order");
 const amqp = require("amqplib");
+const { MONGO_URI } = process.env;
 
 var channel, connection;
 
 mongoose.connect(
-    "mongodb+srv://excanny:Excannyg*1914@cluster0.rhoaa.mongodb.net/order-serviceDB?retryWrites=true&w=majority",
+    MONGO_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
